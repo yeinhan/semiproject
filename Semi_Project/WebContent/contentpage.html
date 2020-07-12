@@ -1,0 +1,190 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+%>
+<%
+	response.setContentType("text/html; charset=UTF-8");
+%>
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<title>Semi_Project_ContentPage</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="assets/css/main.css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$(".starRev span").click(function() {
+			$(this).parent().children("span").removeClass("on");
+			$(this).addClass("on").prevAll("span").addClass("on");
+			return false;
+		})
+	});
+	
+</script>		
+</head>
+<body>
+
+	<!-- Header -->
+	<header id="header" class="alt">
+		<div class="logo">
+			<a href="index.html">DOM <span>Critic</span></a>
+		</div>
+	</header>
+
+	<!-- Nav -->
+
+
+	<!-- Banner -->
+	<section id="banner">
+		<div class="inner">
+			<header>
+				<h1>The Last Of US Part II</h1>
+				<p>
+					Sony Interactive Entertainment, Naughty Dog<br />
+				</p>
+			</header>
+
+		</div>
+	</section>
+
+	<!-- Main -->
+	<div id="main">
+
+		<!-- Section -->
+		<section class="wrapper style1">
+			<div class="articles">
+				<span class="game_summary"> Summary </span>
+				<p class="lastofus_summary">
+					게임의 배경은 시애틀이며 성장한 엘리와 나이 든 조엘이 등장하면서<br> 전작의 내용이 이어지는 건 확정이다.
+					이번 작에서 엘리는 19세로, <br>전작의 도입부에서 5년, 엔딩에서 4년이 지났다. <br>전작의
+					도입부가 2033년이었으니 파트 2의 시대적 배경은 2038년이다.<br> 스토리의 테마는 증오이며 핵심
+					플레이어 캐릭터는 엘리와 애비이다.
+				</p>
+			</div>
+			<div class="vertical"></div>
+			<div class="game_info">
+				<span class=""> General Information </span>
+				<p class="lastofus_info">
+					개발 : Naughty Dog<br> 유통 : Sony Interactive Entertainment<br>
+					플랫폼 : PS4<br> 출시일자 : 2020년 6월 9일<br> 장르 : 액션 어드벤쳐<br>
+					심의등급 : 청소년 이용불가
+				</p>
+			</div>
+		</section>
+
+		<!-- Section -->
+		<section class="wrapper style2">
+		<p class="review_title">The Last Of Us Part II Reviews </p>
+		<div class="review_line"></div>
+			<div class="review-container">
+				<div>리뷰1</div>
+				<div>리뷰2</div>
+				<div>리뷰3</div>
+				<div>리뷰4</div>
+				<div>리뷰5</div>
+				<div>리뷰6</div>
+				<div>리뷰7</div>
+				<div>리뷰8</div>
+			</div>
+			<a href="#" class="button">리뷰 더 보기</a>
+		</section>
+			
+		<section class="wrapper style2_1">
+			<div class="wrapper">
+				<div class="reveiew-form">
+					<div class="head" >
+						<div>
+							<h3>Review this game</h3>	
+						</div>
+					</div>
+					<div class="form-body">
+					<form action="#" method="post"  class="review_writeform">
+					<div class="starRev">
+						<span class="starR on">별1</span>
+						<span class="starR">별2</span>
+						<span class="starR">별3</span>
+						<span class="starR">별4</span>
+						<span class="starR">별5</span>
+					</div>
+					<textarea rows="10" cols="60" name="" class="review_area" placeholder="리뷰를 작성 해 주세요."></textarea>
+					<input type="submit" value="작성">
+				</form>
+				</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Section -->
+		<section class="wrapper style3">
+			<p class="screenshot_title">Screen Shots</p> 
+			<div class="screenshot_line"></div>
+			<div class="screenshot-container">
+				<div>
+					<image src = "https://cdn.mos.cms.futurecdn.net/szukg9JzgNt8f7wXCUJcnh.jpg" style="width:350px; height:200px; margin-top:-20px; border-radius:5px;" >
+				</div>
+				<div>
+					<image src="https://i.inews.co.uk/content/uploads/2020/06/PRI_155019864.jpg" style="width:350px; height:200px; margin-top:-20px; border-radius:5px;" >
+				</div>
+				<div>
+					<image src="https://www.syfy.com/sites/syfy/files/styles/1200x680_hero/public/2020/06/the-last-of-us-part-ii-screenshots-05-en-us-29may20.jpg" style="width:350px; height:200px; margin-top:-20px; border-radius:5px;" >
+				</div>
+				<div>
+					<image src="https://assets1.ignimgs.com/2020/06/17/tlou-2-combat-tips-1592425440421.png?width=1280" style="width:350px; height:200px; margin-top:-20px; border-radius:5px;" >
+				</div>
+			</div>
+			
+		</section>
+		
+		<section class="wrapper style4">
+			<p class="trailer_title">Trailers</p>
+			<div class="trailer_line"></div>
+			<div class="tr_container">
+				<div>
+					<img src="https://img.youtube.com/vi/TXl9GI1p_Os/hqdefault.jpg " style="width:300px; height:200px; margin-top:-20px; border-radius:5px;" >
+					<p onclick="location.href='' "><br>"The Last of Us Part 2" 한국어 트레일러 (4K)</p>
+				</div>
+					<div>
+					<img src="https://img.youtube.com/vi/eOiUtRF8k28/hqdefault.jpg " style="width:300px; height:200px; margin-top:-20px; border-radius:5px;" >
+					<p><br>PS4 I The Last of Us Part II <br> 공식 스토리 트레일러</p>
+				</div>
+				<div>
+					<img src="https://img.youtube.com/vi/btmN-bWwv0A/hqdefault.jpg" style="width:300px; height:200px; margin-top:-20px; border-radius:5px;" >
+					<p><br>PS4™ I The Last of Us™ Part II <br>발매일 공개 트레일러</p>
+				</div>
+				<div>
+					<img src="https://img.youtube.com/vi/eML5icfq5VM/hqdefault.jpg " style="width:300px; height:200px; margin-top:-20px; border-radius:5px;" >
+					<p><br>PS4 I The Last of Us Part II  <br>공식 TV CM (총 버전)</p>
+				</div>
+				<div>
+					<img src="https://img.youtube.com/vi/vhII1qlcZ4E/hqdefault.jpg " style="width:300px; height:200px; margin-top:-20px; border-radius:5px;" >
+					<p><br>PS4 I The Last of Us Part II  <br>공식 TV CM (칼 버전)</p>
+				</div>
+			</div>
+		</section>
+		
+		<section class="wrapper style5">
+			<p class="article_title">Recent News</p>
+			<div class="article_line"></div>
+			
+		</section>
+
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="copyright">
+			
+			<p>
+				Copyright &copy; KH Academy All right reserved <a
+					href="https://templated.co"></a>
+			</p>
+		</div>
+	</footer>
+
+
+</body>
+</html>
