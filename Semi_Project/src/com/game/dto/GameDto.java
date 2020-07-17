@@ -74,6 +74,25 @@ public class GameDto {
 	}
 
 	
+	//마이페이지 리뷰 업데이트
+	public GameDto(int rv_no,String game_name, double rv_star, String rv_content, int rv_platform) {
+		super();
+		this.game_name = game_name;
+		this.rv_no = rv_no;
+		this.rv_star = rv_star;
+		this.rv_content = rv_content;
+		this.rv_platform = rv_platform;
+	}
+
+	//마이페이지 리뷰 업테이트
+	public GameDto(int rv_no, double rv_star, String rv_content, int rv_platform) {
+		super();
+		this.rv_no = rv_no;
+		this.rv_star = rv_star;
+		this.rv_content = rv_content;
+		this.rv_platform = rv_platform;
+	}
+
 	public int getUser_no() {
 		return user_no;
 	}

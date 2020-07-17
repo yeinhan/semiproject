@@ -116,16 +116,74 @@ public class GameServlet extends HttpServlet {
 				break;
 			}
 
-		}
-//	      else if(command.equals("updateform_pc")) {
-//	    	  int rv_no = Integer.parseInt(request.getParameter("rv_no"));
-//	    	  
-//	    	  GameDto dto = dao.selectOne_RV(rv_no);
-//	    	  
-//	    	  request.setAttribute("dto", dto);
-//	    	  dispatch(, request, response);
-//	    	  
-//	      }
+		} else if(command.equals("updateform")) {
+	    	  int rv_no = Integer.parseInt(request.getParameter("rv_no"));
+	    	  
+	    	  GameDto dto = dao.selectOne_RV(rv_no);
+	    	  
+	    	  request.setAttribute("dto", dto);
+	    	  dispatch("user_dashboard_update.jsp", request, response);
+	    	  
+	      }else if(command.equals("user_dashboard_update")) {
+	    	  int rv_no = Integer.parseInt(request.getParameter("rv_no"));
+	    	  double rv_star = Double.parseDouble(request.getParameter("rv_star"));
+	    	  String rv_content = request.getParameter("rv_content");
+	    	  int rv_platform = Integer.parseInt(request.getParameter("rv_platform"));
+	    	  
+	    	  GameDto dto = new GameDto(rv_no, rv_star, rv_content,rv_platform);
+	    	  int res  = dao.updateRv(dto);
+	    	  
+	    	  switch (rv_platform) {
+				case 1:
+					if (res > 0 & rv_platform == 1) {
+						jsResponse("글 수정 성공", "pagemove?command=user_dashboard_pop_pc", response);
+					} else {
+						jsResponse("글 수정 실패ㅜㅜ", "pagemove?command=user_dashboard_pop_pc", response);
+					}
+					break;
+				case 2:
+					if (res > 0 & rv_platform == 2) {
+						jsResponse("글 수정 성공", "pagemove?command=user_dashboard_ps4_", response);
+					} else {
+						jsResponse("글 수정 실패ㅜㅜ", "pagemove?command=user_dashboard_pop_ps4", response);
+					}
+					break;
+					
+				case 3:
+					if (res > 0 & rv_platform == 3) {
+						jsResponse("글 수정 성공", "pagemove?command=user_dashboard_pop_xbox", response);
+					} else {
+						jsResponse("글 수정 실패ㅜㅜ", "pagemove?command=user_dashboard_pop_xbox", response);
+					}
+					break;
+				case 4:
+					if (res > 0 & rv_platform == 4) {
+						jsResponse("글 수정 성공", "pagemove?command=user_dashboard_pop_switch", response);
+					} else {
+						jsResponse("글 수정 실패ㅜㅜ", "pagemove?command=user_dashboard_pop_switch", response);
+					}
+					break;
+				}
+	      }else if(command.equals("backform")) {
+	    	  int rv_platform = Integer.parseInt(request.getParameter("rv_platform"));
+	    	  
+	    	  switch(rv_platform) {
+	    	  case 1:
+	    		  dispatch("pagemove?command=user_dashboard_pop_pc", request, response);
+	    		  break;
+	    	  case 2:
+	    		  dispatch("pagemove?command=user_dashboard_pop_ps4", request, response);
+	    		  break;
+	    	  case 3:
+	    		  dispatch("pagemove?command=user_dashboard_pop_xbox", request, response);
+	    		  break;
+	    	  case 4:
+	    		  dispatch("pagemove?command=user_dashboard_pop_switch", request, response);
+	    		  break;
+	    	  
+	    	  }
+	    	  
+	      }
 	}
 
 	private void jsResponse(String msg, String url, HttpServletResponse response) throws IOException {

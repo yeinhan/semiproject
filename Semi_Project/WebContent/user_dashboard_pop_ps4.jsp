@@ -22,18 +22,21 @@
 
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript">
+	window.opener.location.reload();
+</script>
 </head>
 <body>
-	<div class="popup_wrap" style="padding:10px 20px;">
+	<div class="popup_wrap" style="padding: 10px 20px;">
 		<h1 class="h1"
 			style="font-size: 30px; text-align: center; font-weight: 500;">
 			PS4</h1>
 		<div>
-						<table class="popup">
+			<table class="popup">
 				<col width="110px">
 				<col width="96px">
 				<col width="740px">
-				<col width="100px">
+				<col width="140px">
 				<thead>
 					<tr>
 						<th>게임이름</th>
@@ -55,9 +58,10 @@
 									<td>${dto.game_name }</td>
 									<td>${dto.rv_star }</td>
 									<td>${dto.rv_content }</td>
-									<td>
-									<input type="submit" value="수정"> 
-									<input type="button" value="삭제" onclick="location.href='pagemove?command=deleteform&rv_no=${dto.rv_no }&rv_platform=${dto.rv_platform }'">
+									<td><input type="button" value="수정"
+										onclick="location.href='pagemove?command=updateform&rv_no=${dto.rv_no}'">
+										<input type="button" value="삭제"
+										onclick="location.href='pagemove?command=deleteform&rv_no=${dto.rv_no }&rv_platform=${dto.rv_platform }'"></td>
 									</td>
 								</tr>
 							</c:forEach>

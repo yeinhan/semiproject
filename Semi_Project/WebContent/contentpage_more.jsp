@@ -61,7 +61,7 @@ $(function() {
 				</form>
 			</div>
 		</div>
-		</div>
+		
 		<div class="review_list">
 			<h1 class="h1">Review</h1>
 			<div class="review_box">

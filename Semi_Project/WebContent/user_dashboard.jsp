@@ -52,7 +52,7 @@
 	}
 	function popup_pc() {
 		var popupWidth=1060;
-		var popupHeight=720;
+		var popupHeight=600;
 		var popupX = (window.screen.width / 2) - (popupWidth / 2);
 		var popupY= (window.screen.height / 2) - (popupHeight / 2);
 		
@@ -62,21 +62,37 @@
 	}
 	function popup_ps4() {
 
+		var popupWidth=1060;
+		var popupHeight=600;
+		var popupX = (window.screen.width / 2) - (popupWidth / 2);
+		var popupY= (window.screen.height / 2) - (popupHeight / 2);
+		
+		
 		window.open('pagemove?command=user_dashboard_pop_ps4', '팝업창',
-				'width=1060, height=720, left=400, top=150');
-
+				"width="+popupWidth+",height="+popupHeight+",left="+popupX+",top="+popupY);
 	}
 	function popup_xbox() {
 
+		var popupWidth=1060;
+		var popupHeight=600;
+		var popupX = (window.screen.width / 2) - (popupWidth / 2);
+		var popupY= (window.screen.height / 2) - (popupHeight / 2);
+		
+		
 		window.open('pagemove?command=user_dashboard_pop_xbox', '팝업창',
-				'width=1060, height=720, left=400, top=150');
+				"width="+popupWidth+",height="+popupHeight+",left="+popupX+",top="+popupY);
 
 	}
 	function popup_switch() {
 
+		var popupWidth=1060;
+		var popupHeight=720;
+		var popupX = (window.screen.width / 2) - (popupWidth / 2);
+		var popupY= (window.screen.height / 2) - (popupHeight / 2);
+		
+		
 		window.open('pagemove?command=user_dashboard_pop_switch', '팝업창',
-				'width=1060, height=720, left=400, top=150');
-
+				"width="+popupWidth+",height="+popupHeight+",left="+popupX+",top="+popupY);
 	}
 </script>
 

@@ -51,7 +51,7 @@ public class MypageDao extends JDBCTemplate {
 		return res;
 
 	}
-	
+
 	public List<GameDto> selectReviewPs4() {
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
@@ -90,7 +90,7 @@ public class MypageDao extends JDBCTemplate {
 		return res;
 
 	}
-	
+
 	public List<GameDto> selectReviewXbox() {
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
@@ -129,7 +129,7 @@ public class MypageDao extends JDBCTemplate {
 		return res;
 
 	}
-	
+
 	public List<GameDto> selectReviewSwitch() {
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
@@ -173,8 +173,7 @@ public class MypageDao extends JDBCTemplate {
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
 		int res = 0;
-	
-		
+
 		String sql = " DELETE FROM REVIEW WHERE RV_NO=? ";
 
 		try {
@@ -182,11 +181,11 @@ public class MypageDao extends JDBCTemplate {
 			pstm.setInt(1, seq);
 
 			System.out.println("03. query 준비:" + sql);
-			
+
 			res = pstm.executeUpdate();
 			System.out.println("04. query 실행 및 리턴");
-			
-			if(res>0) {
+
+			if (res > 0) {
 				commit(con);
 			}
 
@@ -194,7 +193,7 @@ public class MypageDao extends JDBCTemplate {
 			// TODO Auto-generated catch block
 			System.out.println("3/4 단계 에러");
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close(pstm);
 			close(con);
 			System.out.println("05. db 종료\n");
@@ -238,7 +237,7 @@ public class MypageDao extends JDBCTemplate {
 		}
 		return res;
 	}
-	
+
 	public List<GameDto> selectPs4() {
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
@@ -275,7 +274,7 @@ public class MypageDao extends JDBCTemplate {
 		}
 		return res;
 	}
-	
+
 	public List<GameDto> selectXbox() {
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
@@ -312,7 +311,7 @@ public class MypageDao extends JDBCTemplate {
 		}
 		return res;
 	}
-	
+
 	public List<GameDto> selectSwitch() {
 		Connection con = getConnection();
 		PreparedStatement pstm = null;
@@ -350,15 +349,69 @@ public class MypageDao extends JDBCTemplate {
 		return res;
 	}
 
-//	public GameDto selectOne_RV(int rv_no) {
-//		Connection con = getConnection();
-//		PreparedStatement pstm = null;
-//		ResultSet rs = null;
-//		GameDto res = null;
-//		String sql =" SELECT RV_NO, RV_CONTENT,  "
-//		
-//		pstm = con.prepareStatement(sql);
-//		
-//		return null;
-//	}
+	public GameDto selectOne_RV(int rv_no) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		GameDto res = null;
+		String sql = " SELECT RV_NO,GAME_NAME, RV_STAR, RV_CONTENT,RV_PLATFORM FROM REVIEW A FULL OUTER JOIN GAME B ON A.RV_GAME_NO = B.GAME_NO WHERE RV_NO=? AND RV_NO IS NOT NULL ";
+
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, rv_no);
+
+			System.out.println("03. query 준비:" + sql);
+
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			
+			while(rs.next()) {
+				res = new GameDto(rs.getInt("rv_no"),rs.getString("game_name"),rs.getDouble("rv_star"),rs.getString("rv_content"),rs.getInt("rv_platform"));
+			}
+
+		} catch (SQLException e) {
+			System.out.println("3/4 실행 오류");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+			
+		return res;
+	}
+
+	public int updateRv(GameDto dto) {
+		Connection con = getConnection();
+		PreparedStatement  pstm = null;
+		int res=0;
+		String sql = " UPDATE REVIEW SET RV_STAR=?, RV_CONTENT=? WHERE RV_NO=? ";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setDouble(1, dto.getRv_star());
+			pstm.setString(2, dto.getRv_content());
+			pstm.setInt(3, dto.getRv_no());
+			System.out.println("03.query 준비: "+sql);
+
+			res=pstm.executeUpdate();
+			System.out.println("04. qeury 실행 및 리턴");
+			
+			if(res>0) {
+				commit(con);
+			}
+			
+			
+		} catch (SQLException e) {
+			System.out.println("3/4 단계 오류");
+			e.printStackTrace();
+		}finally {
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+		
+		return res;
+	}
 }
