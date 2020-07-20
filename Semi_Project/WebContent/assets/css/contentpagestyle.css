@@ -60,7 +60,7 @@ html,body{font-family: nanumgothic !important;}
 
 .videoplay {
   	width : 900px;
- 	height : 500px;
+ 	height : 150%;
 }
 
 .vidClosebBtn {
@@ -78,7 +78,7 @@ html,body{font-family: nanumgothic !important;}
 }
 
 .card-header {
-	width : 80%;
+	width : 40%;
 	box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	cursor : pointer;
 	padding-left:3%;
@@ -194,7 +194,7 @@ input[type="submit"] {
 
 .review-container {
 	display: grid;
-	grid-template-columns: auto auto auto auto auto;
+	grid-template-columns: auto auto auto auto;
 	grid-gap: 10%;
 	padding: 10px;
 	margin-left : 20px;
@@ -286,7 +286,7 @@ input[type="submit"] {
 	grid-template-columns: auto auto auto auto;
 	grid-gap: 20px;
 	padding: 10px;
-	margin-left : 3%;
+	margin-left : 5%;
 	margin-right : 20px;
 	margin-top : 20px;
 }
@@ -1452,8 +1452,6 @@ opacity
 	-webkit-justify-content: center;
 	-ms-justify-content: center;
 	justify-content: center;
-	background-image:
-		url(https://images.hdqwalls.com/download/ellie-the-last-of-us-4k-yl-2560x1600.jpg);
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;

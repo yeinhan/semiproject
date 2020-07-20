@@ -297,6 +297,7 @@ html {
   color: #ff9700;
 }
 
+}
 @media (max-width: 360px) {
   .rating > label:before {
     font-size: 0.8em;
@@ -1387,10 +1388,6 @@ h1 {
 .like-name>span {
   font-weight: 600;
 }
-
-/* 팝업  */
-.popup_wrap{width:100%; padding:10px 20px;}
-.popup_wrap h1 {font-size: 50px; text-align: center;}
 
 @media (max-width: 1103px) {
   .book-cell {

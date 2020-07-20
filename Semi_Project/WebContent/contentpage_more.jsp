@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-	request.setCharacterEncoding("UTF-8");
-%>
-<%
-	response.setContentType("text/html; charset=UTF-8");
-%>
+<%request.setCharacterEncoding("UTF-8");%>
+<%response.setContentType("text/html; charset=UTF-8");%>
+
+ <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +18,10 @@ $(function() {
 		return false;
 	})
 });
+function loginChk() {	
+	alert("리뷰를 작성하시려면 먼저 로그인을 해주세요");
+	location.href="pagemove?command=contentpage_more&game_no=${dto.game_no}";
+}
 </script>
 
 <!-- 부트스트랩  / css-->
@@ -40,36 +42,77 @@ $(function() {
 </head>
 <body>
 	<%@include file="./header.jsp" %>
+	<%@include file="./contentpage_header.jsp" %>
 	<section class="main">
-		<div class="wrapper style2_1">
+	
+		<%	
+				if (session.getAttribute("login") == null || session.getAttribute("login").equals(null)) { 
+		%>
+			<div class="wrapper style2_1">
 			<div class="reveiew-form">
 				<h3 class="h1">Review this game</h3>
 			</div>
 			<div class="form-body">
-				<form action="#" method="post" class="review_writeform">
+				<form action="pagemove" method="post" class="review_writeform">
+				<input type="hidden" name="command" value="contentpage_review2">
+				<input type="hidden" name="game_no" value="${dto.game_no }">
+				<input type="hidden" name="game_platform" value="${dto.game_platform }">
 					<div class="starRev">
-						<span class="starR on">별1</span> <span class="starR">별2</span> <span
-							class="starR">별3</span> <span class="starR">별4</span> <span
-							class="starR">별5</span>
+						<span class="starR on" name="rv_star1" value="1">별1</span> 
+						<span class="starR" name="rv_star2">별2</span> 
+						<span class="starR" name="rv_star3">별3</span> 
+						<span class="starR" name="rv_star4">별4</span> 
+						<span class="starR" name="rv_star5">별5</span>
 					</div>
 					<div class="form-group">
 						<label class="control-label" for="review">Your Review:</label>
-						<textarea class="form-control" rows="10" placeholder="Your Reivew"
-							name="review" id="review"></textarea>
+						<textarea class="form-control" rows="10" placeholder="리뷰를 작성 해 주세요."
+							name="rv_content" id="review" onclick="loginChk();"></textarea>
 					</div>
 					<input type="submit" class="btn btn-default" value="작성">
 				</form>
 			</div>
 		</div>
+		<%
+				} else {
+		%>
+		<div class="wrapper style2_1">
+			<div class="reveiew-form">
+				<h3 class="h1">Review this game</h3>
+			</div>
+			<div class="form-body">
+				<form action="pagemove" method="post" class="review_writeform">
+				<input type="hidden" name="command" value="contentpage_review2">
+				<input type="hidden" name="game_no" value="${dto.game_no }">
+				<input type="hidden" name="game_platform" value="${dto.game_platform }">
+					<div class="starRev">
+						<span class="starR on" name="rv_star1" value="1">별1</span> 
+						<span class="starR" name="rv_star2">별2</span> 
+						<span class="starR" name="rv_star3">별3</span> 
+						<span class="starR" name="rv_star4">별4</span> 
+						<span class="starR" name="rv_star5">별5</span>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="review">Your Review:</label>
+						<textarea class="form-control" rows="10" placeholder="리뷰를 작성 해 주세요."
+							name="rv_content" id="review"></textarea>
+					</div>
+					<input type="submit" class="btn btn-default" value="작성">
+				</form>
+			</div>
+		</div>
+				<%
+						}
+				%>
 		
 		<div class="review_list">
 			<h1 class="h1">Review</h1>
+			<c:forEach var="list" items="${list }">
 			<div class="review_box">
-				<div class="writer">Writer</div>
-				<div class="date_write">20.07.10</div>
+				<div class="writer">${list.rv_user_id }</div>
+				<div class="date_write">${list.rv_date }</div>
 				<div class="content_box">
-					<div readonly="readonly" class="content">나는 이게임이
-						좋다ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ</div>
+					<div readonly="readonly" class="content"><c:out value="${list.rv_content }"></c:out></div>
 				</div>
 				<div class="star_box">
 					<div class="star">
@@ -80,67 +123,10 @@ $(function() {
 								d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
 				</svg>
 					</div>
-					<div class="grade">4.5</div>
-
+					<div class="grade">${list.rv_star }</div>
 				</div>
 			</div>
-			<div class="review_box">
-				<div class="writer">Writer</div>
-				<div class="date_write">20.07.10</div>
-				<div class="content_box">
-					<div readonly="readonly" class="content">나는 이게임이
-						좋다ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ</div>
-				</div>
-
-				<div class="star"></div>
-			</div>
-			<div class="review_box">
-				<div class="writer">Writer</div>
-				<div class="date_write">20.07.10</div>
-				<div class="content_box">
-					<div readonly="readonly" class="content">나는 이게임이
-						좋다ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ</div>
-				</div>
-
-				<div class="star"></div>
-			</div>
-			<div class="review_box">
-				<div class="writer">Writer</div>
-				<div class="date_write">20.07.10</div>
-				<div class="content_box">
-					<div readonly="readonly" class="content">나는 이게임이
-						좋다ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ</div>
-				</div>
-
-				<div class="star"></div>
-			</div>
-			<div class="review_box">
-				<div class="writer">Writer</div>
-				<div class="date_write">20.07.10</div>
-				<div class="content_box">
-					<div readonly="readonly" class="content">나는 이게임이
-						좋다ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ</div>
-				</div>
-
-				<div class="star"></div>
-			</div>
-			<div class="review_box">
-				<div class="writer">Writer</div>
-				<div class="date_write">20.07.10</div>
-				<div class="content_box">
-					<div readonly="readonly" class="content">나는 이게임이
-						좋다ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ</div>
-				</div>
-
-				<div class="star"></div>
-			</div>
-			<div class="review_box">
-				<div class="writer">Writer</div>
-				<div class="date_write">20.07.10</div>
-				<div class="content_box">
-					<div readonly="readonly" class="content">나는 이게임이
-						좋다ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ</div>
-				</div>
+			</c:forEach>
 
 				<div class="star"></div>
 			</div>
@@ -167,5 +153,6 @@ $(function() {
 	</section>
 	<!--부트 스트랩 js  사용-->
 	<script type="text/javascript" src="./resource/js/bootstrap.js"></script>
+	<%@include file="./footer.jsp" %>
 </body>
 </html>

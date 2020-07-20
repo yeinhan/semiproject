@@ -321,7 +321,6 @@ html {
 
 .book-slide {
   width: 100%;
-  
 }
 
 .book {
@@ -336,26 +335,7 @@ html {
   width: 65%;
   height: 480px;
 }
-.book-cell:nth-child(1) {
-  background-image:url("https://images6.alphacoders.com/788/thumb-1920-788051.jpg");
-  background-size:cover;
-}
-.book-cell:nth-child(2) {
-  background-image:url("https://kr-publish.s3.amazonaws.com/notice/0268f49d4d229bcee46589954838b252d9aa3f89.jpg");
-  background-size:cover;
-}
-.book-cell:nth-child(3) {
-  background-image:url("https://images7.alphacoders.com/749/thumb-1920-749807.png");
-  background-size:cover;
-}
-.book-cell:nth-child(4) {
-  background-image:url("https://www.somagnews.com/wp-content/uploads/2020/03/tft-galaxias-e1585329197359.jpg");
-  background-size:cover;
-}
-.book-cell:nth-child(5) {
-  background-image:url("https://images8.alphacoders.com/710/thumb-1920-710329.jpg");
-  background-size:cover;
-}
+
 
 .flickity-page-dots {
   display: none;
@@ -590,9 +570,6 @@ h1 {
   width: 160px;
   border-radius: 30px;
 }
-.book-see:hover {
-  color: black;
-}
 .book-see.book-blue {
   color: #a4e0eb;
 }
@@ -667,7 +644,7 @@ h1 {
 }
 
 .book-type + .book-type {
-  margin-left: 20px;
+  margin-left: -10%;
 }
 
 .book-type {

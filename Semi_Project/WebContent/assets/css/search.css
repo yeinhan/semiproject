@@ -1,3 +1,4 @@
+-
 @charset "UTF-8";
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
@@ -12,16 +13,16 @@
   --placeholder: #ccd0d2; 
 }
 #seethedetail_reddead{
-	text-decoration: none;
+   text-decoration: none;
 }
 
 #mask {
-	position: absolute;
-	z-index: 9000;
-	background-color: #000;
-	display: none;
-	left: 0;
-	top: 0;
+   position: absolute;
+   z-index: 9000;
+   background-color: #000;
+   display: none;
+   left: 0;
+   top: 0;
 }
 
 /*로그인 팝업 창 */
@@ -123,7 +124,7 @@
 }
 
 .sign-container input[type=button]:hover {
-	opacity : 1;
+   opacity : 1;
 }
 
 .sign-container input[type=text]:focus, .sign-container input[type=password]:focus ,.sign-container input[type=email]:focus , sign-container input[type=tel]:focus {
@@ -150,7 +151,7 @@
 }
 
 .signup-popup button {
-	border-radius:5px;
+   border-radius:5px;
 }
 
 * {
@@ -174,7 +175,7 @@ html {
 }
 
 .browse {
-	margin-right : 10px;
+   margin-right : 10px;
 }
 
 .main_visual {
@@ -218,7 +219,7 @@ html {
   font-family: var(--body-font);
 }
 .img-button{
-	
+   
 }
 
 .search-bar input::placeholder {
@@ -245,32 +246,32 @@ html {
 }
 
 .main_menu {
-	position:relative;
-	margin-left: 100px;
-	width: 45%;
+   position:relative;
+   margin-left: 100px;
+   width: 45%;
 }
 
 .main_menu span {
-	font-weight:200;
-	font-size:160%;
-	width:100%;
-	height:100%;
+   font-weight:200;
+   font-size:160%;
+   width:100%;
+   height:100%;
 }
 .menu_pc, .menu_ps4, .menu_xbox  {
-	cursor : pointer;
-	margin-right: 17%;
+   cursor : pointer;
+   margin-right: 17%;
 }
 .menu_switch {
-	cursor : pointer;
+   cursor : pointer;
 }
 
 .main_menu span:hover {
-	color:var(--body-color);
-	border-bottom:1px solid var(--body-color)
+   color:var(--body-color);
+   border-bottom:1px solid var(--body-color)
 }
 .footer {
-	text-align : center;
-	color: var(--placeholder);
+   text-align : center;
+   color: var(--placeholder);
 }
 .user-img {
   width: 50px;
@@ -443,67 +444,67 @@ h1 {
 }
 
 .rating > input:checked ~ label,
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
+.rating:not(:checked) > label:checked,
+.rating:not(:checked) > label:checked ~ label {
   color: black;
 }
 
-.rating > input:checked + label:hover,
-.rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label,
-.rating > input:checked ~ label:hover ~ label {
+.rating > input:checked + label:checked,
+.rating > input:checked ~ label:checked,
+.rating > label:checked ~ input:checked ~ label,
+.rating > input:checked ~ label:checked ~ label {
   color: #d85d61;
 }
 
 .blue > input:checked ~ label,
-.blue:not(:checked) > label:hover,
-.blue:not(:checked) > label:hover ~ label {
+.blue:not(:checked) > label:checked,
+.blue:not(:checked) > label:checked ~ label {
   color: #458997;
 }
 
-.blue > input:checked + label:hover,
-.blue > input:checked ~ label:hover,
-.blue > label:hover ~ input:checked ~ label,
-.blue > input:checked ~ label:hover ~ label {
+.blue > input:checked + label:checked,
+.blue > input:checked ~ label:checked,
+.blue > label:checked ~ input:checked ~ label,
+.blue > input:checked ~ label:checked ~ label {
   color: #458997;
 }
 
 .purple > input:checked ~ label,
-.purple:not(:checked) > label:hover,
-.purple:not(:checked) > label:hover ~ label {
+.purple:not(:checked) > label:checked,
+.purple:not(:checked) > label:checked ~ label {
   color: #a76287;
 }
 
-.purple > input:checked + label:hover,
-.purple > input:checked ~ label:hover,
-.purple > label:hover ~ input:checked ~ label,
-.purple > input:checked ~ label:hover ~ label {
+.purple > input:checked + label:checked,
+.purple > input:checked ~ label:checked,
+.purple > label:checked ~ input:checked ~ label,
+.purple > input:checked ~ label:checked ~ label {
   color: #a76287;
 }
 
 .yellow > input:checked ~ label,
-.yellow:not(:checked) > label:hover,
-.yellow:not(:checked) > label:hover ~ label {
+.yellow:not(:checked) > label:checked,
+.yellow:not(:checked) > label:checked ~ label {
   color: #ffad58;
 }
 
-.yellow > input:checked + label:hover,
-.yellow > input:checked ~ label:hover,
-.yellow > label:hover ~ input:checked ~ label,
-.yellow > input:checked ~ label:hover ~ label {
+.yellow > input:checked + label:checked,
+.yellow > input:checked ~ label:checked,
+.yellow > label:checked ~ input:checked ~ label,
+.yellow > input:checked ~ label:checked ~ label {
   color: #ffad58;
 }
 
 .dark-purp > input:checked ~ label,
-.dark-purp:not(:checked) > label:hover,
-.dark-purp:not(:checked) > label:hover ~ label {
+.dark-purp:not(:checked) > label:checked,
+.dark-purp:not(:checked) > label:checked ~ label {
   color: #905587;
 }
 
-.dark-purp > input:checked + label:hover,
-.dark-purp > input:checked ~ label:hover,
-.dark-purp > label:hover ~ input:checked ~ label,
-.dark-purp > input:checked ~ label:hover ~ label {
+.dark-purp > input:checked + label:checked,
+.dark-purp > input:checked ~ label:checked,
+.dark-purp > label:checked ~ input:checked ~ label,
+.dark-purp > input:checked ~ label:checked ~ label {
   color: #905587;
 }
 
@@ -546,18 +547,18 @@ h1 {
   cursor : pointer;
 }
 .login_text {
-	color:white;
+   color:white;
 }
 
 .login_text:hover{
-	color:black;
+   color:black;
 }
 
 .signup_text {
-	color : white;
+   color : white;
 }
 .signup_text:hover {
-	color:black;
+   color:black;
 }
 
 .book-see {
@@ -754,7 +755,7 @@ h1 {
   grid-row-gap: 40px;
   padding-top: 40px;
   position: relative;
-  width:70%;
+  width : 80%;
 }
 
 .book-card {
@@ -817,16 +818,28 @@ h1 {
   white-space: nowrap;
 }
 
+.reviewmore{
+          margin-top: 25px;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+    color: white;
+    font-weight: 600;
+    padding: 8px;
+    font-size: 14px;
+    width: 160px;
+    border-radius: 30px;
+}
+
 .book-rate > input:checked ~ label,
-.book-rate:not(:checked) > label:hover,
-.book-rate:not(:checked) > label:hover ~ label {
+.book-rate:not(:checked) > label:checked,
+.book-rate:not(:checked) > label:checked ~ label {
   color: #ff9700;
 }
 
-.book-rate > input:checked + label:hover,
-.book-rate > input:checked ~ label:hover,
-.book-rate > label:hover ~ input:checked ~ label,
-.book-rate > input:checked ~ label:hover ~ label {
+.book-rate > input:checked + label:checked,
+.book-rate > input:checked ~ label:checked,
+.book-rate > label:checked ~ input:checked ~ label,
+.book-rate > input:checked ~ label:checked ~ label {
   color: #ff9700;
 }
 
@@ -961,10 +974,6 @@ h1 {
     margin-right: auto;
   }
 
-  .book-cards {
-    grid-template-columns: 1fr;
-  }
-
   .book-types {
     display: none;
   }
@@ -978,40 +987,54 @@ h1 {
 
 .review-container {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+ 	grid-template-columns: repeat(2, 1fr);
     grid-gap: 10%;
     padding: 10px;
     margin-right: 20px;
     margin-top: 2%;
     position: relative;
-    grid-row-gap: 5%;
     grid-column-gap: 1%;
 }
+
 .review-container>div {
-	font-family: FontAwesome;
-	background-color: white;
-	text-align: center;
-	padding: 20px 0;
-	font-size: 30px;
-	width : 90%;
-	height : 200px;
-	margin-left:1%;
-	border-radius : 10px;
-	box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	font-size : 100%;
-	cursor : pointer;
+   font-family: FontAwesome;
+   background-color: white;
+   text-align: center;
+   padding: 20px 0;
+   font-size: 30px;
+   width : 90%;
+   height : 200px;
+   margin-left:1%;
+   border-radius : 10px;
+   box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   font-size : 100%;
+   cursor : pointer;
+   font-size: larger;
+    /* text-align: center; */
+    padding-left: 50px;
+    padding-top: 40px;
 }
-.review-container>div {
-	font-family: FontAwesome;
-	background-color: white;
-	text-align: center;
-	padding: 20px 0;
-	font-size: 30px;
-	width : 90%;
-	height : 200px;
-	margin-left:1%;
-	border-radius : 10px;
-	box-shadow : 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	font-size : 100%;
-	cursor : pointer;
+
+.reviewmore{
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+    color: white;
+    font-weight: 600;
+    padding: 8px;
+    font-size: 14px;
+    width: 160px;
+    border-radius: 30px;
+}
+
+.reviewmore2{
+   position: relative;
+    top: 50px;
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+    color: white;
+    font-weight: 600;
+    padding: 8px;
+    font-size: 14px;
+    width: 160px;
+    border-radius: 30px;
 }

@@ -94,7 +94,6 @@ label{display: inline-block;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 .form-group {margin-bottom: 15px; margin-top: 15px;}
-.review_writeform input{float: right;}
 .reveiew-form h3{font-weight: bold; border-bottom: 1px solid #eee; padding-bottom: 10px;} 
 
 /* 리뷰리스트 */

@@ -1,108 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
-<%
-	request.setCharacterEncoding("UTF-8");
-%>
-<%
-	response.setContentType("text/html; charset=UTF-8");
-%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    pageEncoding="UTF-8"%>
+    <%request.setCharacterEncoding("UTF-8"); %>
+    <%response.setContentType("text/html; charset=UTF-8"); %>
+    
+    <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>MyPage</title>
-<link rel='stylesheet'
-	href='https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css'>
-
+<title>Insert title here</title>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css'>
 <link rel="stylesheet" href="assets/css/user_dashboardstyle.css">
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript">
-	function wrapWindowByMask() {
-		var maskHeight = $(document).height();
-		var maskWidth = $(window).width();
-		$('#mask').css({
-			'width' : maskWidth,
-			'height' : maskHeight
-		});
-		$('#mask').fadeTo("fast", 0.8);
-	}
-
-	$(document).ready(function() {
-		$('.btn btn-primary btn-block btn-large').click(function(e) {
-			e.preventDefault();
-			wrapWindowByMask();
-		});
-		$('.content-wrapper').click(function() {
-			$('.popup').show().fad
-
-		})
-	});
-	function changePopup() {
-		$(".change-popup").fadeIn(500);
-		wrapWindowByMask();
-	}
-
-	function closeChangeForm() {
-		$(".change-popup").fadeOut(500);
-		$('#mask').hide();
-	}
-	function popup_pc() {
-		
-		
-		var popupWidth=1060;
-		var popupHeight=600;
-		var popupX = (window.screen.width / 2) - (popupWidth / 2);
-		var popupY= (window.screen.height / 2) - (popupHeight / 2);
-		
-		
-		window.open('pagemove?command=user_dashboard_pop_pc&pageNum=1', '팝업창',
-				"width="+popupWidth+",height="+popupHeight+",left="+popupX+",top="+popupY);
-	}
-	function popup_ps4() {
-
-		var popupWidth=1060;
-		var popupHeight=600;
-		var popupX = (window.screen.width / 2) - (popupWidth / 2);
-		var popupY= (window.screen.height / 2) - (popupHeight / 2);
-		
-		
-		window.open('pagemove?command=user_dashboard_pop_ps4&pageNum=1', '팝업창',
-				"width="+popupWidth+",height="+popupHeight+",left="+popupX+",top="+popupY);
-	}
-	function popup_xbox() {
-
-		var popupWidth=1060;
-		var popupHeight=600;
-		var popupX = (window.screen.width / 2) - (popupWidth / 2);
-		var popupY= (window.screen.height / 2) - (popupHeight / 2);
-		
-		
-		window.open('pagemove?command=user_dashboard_pop_xbox&pageNum=1', '팝업창',
-				"width="+popupWidth+",height="+popupHeight+",left="+popupX+",top="+popupY);
-
-	}
-	function popup_switch() {
-
-		var popupWidth=1060;
-		var popupHeight=720;
-		var popupX = (window.screen.width / 2) - (popupWidth / 2);
-		var popupY= (window.screen.height / 2) - (popupHeight / 2);
-		
-		
-		window.open('pagemove?command=user_dashboard_pop_switch&pageNum=1', '팝업창',
-				"width="+popupWidth+",height="+popupHeight+",left="+popupX+",top="+popupY);
-	}
-</script>
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
-
 <body>
-
-	<!-- partial:index.partial.html -->
 	<%@ include file="./header.jsp"%>
 	<div class="main_visual">
 
@@ -115,8 +26,6 @@
 					</div>
 					<div class="details">
 						<h2>회원명</h2>
-						<a href="#" class="btn btn-primary btn-block btn-large"
-							onclick="changePopup();">비밀번호 변경</a>
 					</div>
 				</section>
 			</div>
@@ -169,7 +78,7 @@
 											</tr>
 										</c:when>
 										<c:otherwise>
-											<c:forEach var="dto_pc" items="${list_pc }" begin="0" end="4">
+											<c:forEach var="dto_pc" items="${list_pc }">
 												<tr>
 													<td>${dto_pc.game_name }</td>
 													<td class="star">
@@ -200,7 +109,7 @@
 
 						<div class="book-card">
 							<div class="content-top">
-								<div class="content-wrapper" onclick="popup_ps4();">
+								<div class="content-wrapper" onclick="popup_ps4()">
 									<br>
 								</div>
 							</div>
@@ -237,7 +146,7 @@
 											</tr>
 										</c:when>
 										<c:otherwise>
-											<c:forEach var="dto_ps4" items="${list_ps4 }"  begin="0" end="4">
+											<c:forEach var="dto_ps4" items="${list_ps4 }">
 												<tr>
 													<td>${dto_ps4.game_name }</td>
 													<td class="star">
@@ -304,7 +213,7 @@
 											</tr>
 										</c:when>
 										<c:otherwise>
-											<c:forEach var="dto_xbox" items="${list_xbox }"  begin="0" end="4">
+											<c:forEach var="dto_xbox" items="${list_xbox }">
 												<tr>
 													<td>${dto_xbox.game_name }</td>
 													<td class="star">
@@ -370,7 +279,7 @@
 											</tr>
 										</c:when>
 										<c:otherwise>
-											<c:forEach var="dto_switch" items="${list_switch }"  begin="0" end="4">
+											<c:forEach var="dto_switch" items="${list_switch }">
 												<tr>
 													<td>${dto_switch.game_name }</td>
 													<td class="star">
@@ -406,27 +315,8 @@
 			</div>
 		</div>
 
-		<!-- 개인정보 수정 -->
-		<div class="change-popup">
-			<form action="#" method="post" class="form-container">
-				<label for="pswnow"><b>현재비밀번호</b></label> <input type="password"
-					placeholder="Enter Password" name="psw" style="margin-bottom: 0"
-					required>
-				<div class="warning">비밀번호가 잘못되었습니다.</div>
-				<label for="psw"><b>비밀번호</b></label> <input type="password"
-					placeholder="Enter Password" name="psw" required> <label
-					for="pswchk"><b>비밀번호 확인</b></label> <input type="password"
-					placeholder="Checked Password" name="pswchk"
-					style="margin-bottom: 0" required>
-				<div class="warningchk">비밀번호가 다르다</div>
-				<button type="submit" class="btn">수정</button>
-				<button type="button" class="btn cancel" onclick="closeChangeForm()">취소</button>
-			</form>
-		</div>
-	</div>
 
-	<!-- partial -->
-	<script
+<script
 		src='https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js'></script>
 	<script
 		src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

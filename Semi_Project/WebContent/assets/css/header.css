@@ -22,6 +22,8 @@
 	top: 0;
 }
 
+
+
 /*로그인 팝업 창 */
 .login-popup {
   display: none;
@@ -105,7 +107,7 @@ input.kakao-api {
 .signup-popup {
   display: none;
   position: absolute;
-  bottom:5%;
+  bottom: 5%;
   right: 40%;
   border: 3px solid #f1f1f1;
   z-index:10001;
@@ -332,6 +334,18 @@ html {
   border-radius: 20px;
   cursor : pointer;
 }
+
+.logout_button{
+  text-align: center;
+  background:#e1e1e1;
+  font-weight: 600;
+  font-size: 14px;
+  width: 100px;
+  padding: 8px;
+  border-radius: 20px;
+  cursor : pointer;
+}
+
 .login_text {
 	color:white;
 }
