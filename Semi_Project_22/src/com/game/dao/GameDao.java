@@ -751,6 +751,7 @@ public class GameDao extends JDBCTemplate {
 		}
 		return res;
 	}
+	
 
 	public GameDto selectOne_RV(int rv_no, String user_id) {
 		Connection con = getConnection();

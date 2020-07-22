@@ -44,10 +44,10 @@
 	function changePopup() {
 		$(".change-popup").fadeIn(500);
 		wrapWindowByMask();
-		
-		
+
 		
 	}
+	
 
 	function closeChangeForm() {
 		$(".change-popup").fadeOut(500);
@@ -99,6 +99,7 @@
 		window.open('pagemove?command=user_dashboard_pop_switch&pageNum=1', '팝업창',
 				"width="+popupWidth+",height="+popupHeight+",left="+popupX+",top="+popupY);
 	}
+
 </script>
 
 </head>
@@ -777,16 +778,19 @@
 			<form action="LogController" method="post" class="form-container">
 				<input type="hidden" name="command" value="pwchk">
 				<input type="hidden" name="user_id" value="<%= user_id %>">
-				<label for="pswnow"><b>현재비밀번호</b></label> <input type="password"
-					placeholder="Enter Password" name="" style="margin-bottom: 0"
+				<label for="pswnow"><b>현재비밀번호</b></label> 
+				<input type="password"
+					placeholder="Enter Password" name="user_pw_now" style="margin-bottom: 0"
 					required>
-				<div class="warning">비밀번호가 잘못되었습니다.</div>
+					<br><br>
+<!-- 				<div class="warning">비밀번호가 잘못되었습니다.</div> -->
 				<label for="psw"><b>비밀번호</b></label> <input type="password"
 					placeholder="Enter Password" name="user_pw" required> <label
 					for="pswchk"><b>비밀번호 확인</b></label> <input type="password"
 					placeholder="Checked Password" name="user_pw_ck"
 					style="margin-bottom: 0" required>
-				<div class="warningchk">비밀번호가 다르다</div>
+					<br><br>
+<!-- 				<div class="warningchk">비밀번호가 다르다</div> -->
 				<button type="submit" class="btn" value="pwchk">수정</button>
 				<button type="button" class="btn cancel" onclick="closeChangeForm()">취소</button>
 			</form>

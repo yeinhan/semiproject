@@ -216,6 +216,15 @@ public class GameDto {
 		this.rv_platform = rv_platform;
 	}
 
+	public GameDto(String user_pw) {
+		super();
+		this.user_pw = user_pw;
+		
+	}
+
+
+
+
 	public int getRv_game_no() {
 		return rv_game_no;
 	}

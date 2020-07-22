@@ -166,6 +166,40 @@ public class LoginDao extends JDBCTemplate {
 		
 		return res;
 	}
+
+	public GameDto selectPw(String user_id) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		GameDto res = null;
+		String sql = " SELECT USER_PW FROM USERS WHERE USER_ID=? ";
+
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, user_id);
+
+			System.out.println("03. query 준비:" + sql);
+
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			
+			while(rs.next()) {
+				res = new GameDto(rs.getString("user_pw"));
+			}
+
+		} catch (SQLException e) {
+			System.out.println("3/4 실행 오류");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+			
+		return res;
+		
+	}
 	
 	
 	

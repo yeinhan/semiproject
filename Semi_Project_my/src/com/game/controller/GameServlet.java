@@ -277,13 +277,6 @@ public class GameServlet extends HttpServlet {
 			int rv_no = Integer.parseInt(request.getParameter("rv_no"));
 			String user_id = request.getParameter("user_id");
 
-			/*페이징*/
-//			int pageSize = 10;
-//			String pageNum = request.getParameter("pageNum");
-//			int currentPage =Integer.parseInt(pageNum);
-//			int startRow = (currentPage -1) * pageSize +1;
-//			int endRow = currentPage * pageSize;
-			
 			GameDto dto = dao.selectOne_RV(rv_no, user_id);
 
 			request.setAttribute("dto", dto);

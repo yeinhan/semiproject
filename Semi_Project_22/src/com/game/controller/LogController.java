@@ -106,30 +106,48 @@ public class LogController extends HttpServlet {
 			String user_id = request.getParameter("user_id");
 			System.out.println("Controller user_id :"+user_id);
 			
+			String user_pw_now = request.getParameter("user_pw_now");
+			System.out.println("Controller user_pw_now :"+user_pw_now);
+			
 			String user_pw = request.getParameter("user_pw");
 			System.out.println("Controller user_pw :"+user_pw);
 			
 			String user_pw_ck = request.getParameter("user_pw_ck");
 			System.out.println("Controller user_pw_ck :"+user_pw_ck);
-
-			if(user_pw.equals(user_pw_ck)) {
-				GameDto dto = new GameDto(user_id,user_pw);
-				LoginDao dao = new LoginDao();
-				int res = dao.pwchk(dto);
+			
+			LoginDao dao = new LoginDao();
+			GameDto dto2 = dao.selectPw(user_id);
+			
+			String user_pw_nowck = dto2.getUser_pw();
+			System.out.println("Controller user_pw_nowck: "+user_pw_nowck);
+			
+			
+			GameDto dto = new GameDto(user_id,user_pw);
+			
+			if(user_pw_now.equals(user_pw_nowck)) {
 				
-				if(res>0) {
-					System.out.println("\n update 성공!");
-					jsResponse("수정 성공","user_dashboard.jsp",response);
-				}
-				
-				else {
-					System.out.println("\n update 실패!");
-					jsResponse("수정 실패","user_dashboard.jsp",response);
-				}
+				if(user_pw.equals(user_pw_ck)) {
+					int res = dao.pwchk(dto);
+					
+					if(res>0) {
+						System.out.println("\n update 성공!");
+						jsResponse("비밀번호 수정 성공","user_dashboard.jsp",response);
+					}
+					
+					else {
+						System.out.println("\n update 실패!");
+						jsResponse("비밀번호 수정 실패","user_dashboard.jsp",response);
+					}
+					
+				}else {
+					jsResponse("수정 비밀번호가 일치하지 않습니다. ","user_dashboard.jsp",response);
+				}	
 				
 			}else {
-				jsResponse("수정 비밀번호가 일치하지 않습니다. ","user_dashboard.jsp",response);
+				jsResponse("현재 비밀번호가 일치하지 않습니다. ","user_dashboard.jsp",response);
+				
 			}
+			
 			
 		}
 		
