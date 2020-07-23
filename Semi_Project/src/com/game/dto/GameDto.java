@@ -114,6 +114,8 @@ public class GameDto {
 		this.rv_user_id = rv_user_id;
 	}
 
+	
+
 	public GameDto(int user_no, String user_id, String user_pw, String user_name, String user_email,
 			String user_enabled, int user_count, String user_image, int rv_no, String rv_user_id, int rv_game_no,
 			int rv_star, String rv_content, Date rv_date, int rv_platform, String rv_game_name, int row_num,
@@ -191,6 +193,12 @@ public class GameDto {
 		this.user_image = user_image;
 	}
 
+	public GameDto(int user_no, String user_image) {
+		super();
+		this.user_no = user_no;
+		this.user_image = user_image;
+	}
+	
 	public GameDto(String user_id, String user_pw, String user_name, String user_email, String user_enabled) {
 		super();
 		this.user_id = user_id;
@@ -213,6 +221,7 @@ public class GameDto {
 		this.game_release = game_release;
 		this.game_content = game_content;
 	}
+	
 
 	public GameDto(int game_no) {
 		super();
@@ -677,22 +686,24 @@ public class GameDto {
 	public String toString() {
 		return "GameDto [user_no=" + user_no + ", user_id=" + user_id + ", user_pw=" + user_pw + ", user_name="
 				+ user_name + ", user_email=" + user_email + ", user_enabled=" + user_enabled + ", user_count="
-				+ user_count + ", rv_no=" + rv_no + ", rv_user_id=" + rv_user_id + ", rv_game_no=" + rv_game_no
-				+ ", rv_star=" + rv_star + ", rv_content=" + rv_content + ", rv_date=" + rv_date + ", rv_platform="
-				+ rv_platform + ", rv_game_name=" + rv_game_name + ", row_num=" + row_num + ", game_no=" + game_no
-				+ ", game_staravg=" + game_staravg + ", game_platform=" + game_platform + ", game_name=" + game_name
-				+ ", game_company=" + game_company + ", game_genre=" + game_genre + ", game_release=" + game_release
-				+ ", game_content=" + game_content + ", url_game_no=" + url_game_no + ", main_image=" + main_image
-				+ ", image1=" + image1 + ", image2=" + image2 + ", image3=" + image3 + ", image4=" + image4
-				+ ", video1=" + video1 + ", video2=" + video2 + ", video3=" + video3 + ", video4=" + video4
-				+ ", video_image1=" + video_image1 + ", video_image2=" + video_image2 + ", video_image3=" + video_image3
-				+ ", video_image4=" + video_image4 + ", video_title1=" + video_title1 + ", video_title2=" + video_title2
-				+ ", video_title3=" + video_title3 + ", video_title4=" + video_title4 + ", article1=" + article1
-				+ ", article2=" + article2 + ", article3=" + article3 + ", a_image1=" + a_image1 + ", a_image2="
-				+ a_image2 + ", a_image3=" + a_image3 + ", article_title1=" + article_title1 + ", article_title2="
-				+ article_title2 + ", article_title3=" + article_title3 + ", article_summary1=" + article_summary1
-				+ ", article_summary2=" + article_summary2 + ", article_summary3=" + article_summary3 + ", package_img="
-				+ package_img + "]";
+				+ user_count + ", user_image=" + user_image + ", rv_no=" + rv_no + ", rv_user_id=" + rv_user_id
+				+ ", rv_game_no=" + rv_game_no + ", rv_star=" + rv_star + ", rv_content=" + rv_content + ", rv_date="
+				+ rv_date + ", rv_platform=" + rv_platform + ", rv_game_name=" + rv_game_name + ", row_num=" + row_num
+				+ ", game_no=" + game_no + ", game_staravg=" + game_staravg + ", game_platform=" + game_platform
+				+ ", game_name=" + game_name + ", game_company=" + game_company + ", game_genre=" + game_genre
+				+ ", game_release=" + game_release + ", game_content=" + game_content + ", url_game_no=" + url_game_no
+				+ ", main_image=" + main_image + ", image1=" + image1 + ", image2=" + image2 + ", image3=" + image3
+				+ ", image4=" + image4 + ", video1=" + video1 + ", video2=" + video2 + ", video3=" + video3
+				+ ", video4=" + video4 + ", video_image1=" + video_image1 + ", video_image2=" + video_image2
+				+ ", video_image3=" + video_image3 + ", video_image4=" + video_image4 + ", video_title1=" + video_title1
+				+ ", video_title2=" + video_title2 + ", video_title3=" + video_title3 + ", video_title4=" + video_title4
+				+ ", article1=" + article1 + ", article2=" + article2 + ", article3=" + article3 + ", a_image1="
+				+ a_image1 + ", a_image2=" + a_image2 + ", a_image3=" + a_image3 + ", article_title1=" + article_title1
+				+ ", article_title2=" + article_title2 + ", article_title3=" + article_title3 + ", article_summary1="
+				+ article_summary1 + ", article_summary2=" + article_summary2 + ", article_summary3=" + article_summary3
+				+ ", package_img=" + package_img + "]";
 	}
+
+	
 
 }

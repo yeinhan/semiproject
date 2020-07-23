@@ -1445,4 +1445,43 @@ public class GameDao extends JDBCTemplate {
 		return res;
 		
 	}
+
+
+	public List<GameDto> selectUserImg(String user_id) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		List<GameDto> res = new ArrayList<GameDto>();
+		String sql = " SELECT USER_NO, USER_IMAGE FROM USERS WHERE USER_ID=? ";
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, user_id);
+
+			System.out.println("03. query 준비:" + sql);
+
+			rs = pstm.executeQuery();
+			System.out.println("04. query 실행 및 리턴");
+			
+			while(rs.next()) {
+				GameDto dto = new GameDto();
+				dto.setUser_no(rs.getInt("user_no"));
+				dto.setUser_image(rs.getString("user_image"));
+				res.add(dto);
+				
+				System.out.println("gamedto" +res);
+			}
+
+		} catch (SQLException e) {
+			System.out.println("3/4 실행 오류");
+			e.printStackTrace();
+		}finally {
+			close(rs);
+			close(pstm);
+			close(con);
+			System.out.println("05. db 종료\n");
+		}
+			
+		return res;		
+	}
+	
 }

@@ -196,6 +196,11 @@ public class GameServlet extends HttpServlet {
 			List<GameDto> list_ps4 = dao.selectPs4(user_id);
 			List<GameDto> list_xbox = dao.selectXbox(user_id);
 			List<GameDto> list_switch = dao.selectSwitch(user_id);
+			
+			List<GameDto> user_img = dao.selectUserImg(user_id);
+			System.out.println("user_no: "+user_img);
+			
+			request.setAttribute("user_img", user_img);
 
 			request.setAttribute("list_pc", list_pc);
 			request.setAttribute("list_ps4", list_ps4);
