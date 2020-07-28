@@ -444,10 +444,11 @@
 											<c:out value="${dto.rv_content }"></c:out>
 										</div>		
 									</div>
+									
 							</c:forEach>
-
 						</c:otherwise>
 					</c:choose>
+					
 				</div>
 			</div>
 		</div>

@@ -29,7 +29,7 @@
 				<section class="box widget locations">
 					<div class="avatar" >
 						<img
-							src="./u_img/${dto.user_no}/${dto.user_image}.jpg"  style="height : 210px; width : 200px; box-shadow: -2px 6px 19px 0px #7f818e;" />
+							src="${dto.user_image }"  style="height : 210px; width : 200px; box-shadow: -2px 6px 19px 0px #7f818e;" />
 					</div>
 					<div class="details">
 						<h2>
@@ -59,7 +59,7 @@
 								</div>
 								<div class="review_container">
 									<div class="product_title">
-										<span style="font-weight : bold; font-size : 15px;"><c:out value="${list.game_name }"></c:out></span>
+										<span style="font-weight : bold; font-size : 15px; cursor : pointer;" onclick="location.href='pagemove?command=contentpage&game_no=${list.game_no}&game_platform=${list.game_platform }'"><c:out value="${list.game_name }"></c:out></span>
 									</div>
 									<div class="releaseDate">
 									<fmt:formatDate

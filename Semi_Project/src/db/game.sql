@@ -17,39 +17,42 @@ CREATE SEQUENCE GAME_NO NOCACHE;
 CREATE SEQUENCE RV_NO NOCACHE;
 CREATE SEQUENCE URL_GAME_NO;
 
+SELECT ROWNUM, A.* FROM (SELECT USER_NAME , USER_NO , USER_IMAGE, USER_COUNT FROM USERS ORDER BY USER_COUNT DESC) A WHERE ROWNUM <= 6 
+
 CREATE TABLE USERS (
       USER_NO NUMBER PRIMARY KEY,
-      USER_ID VARCHAR2(50) UNIQUE NOT NULL,
-      USER_PW VARCHAR2(50) NOT NULL,
-      USER_NAME VARCHAR2(50) NOT NULL,
-      USER_EMAIL VARCHAR2(50) UNIQUE NOT NULL,
+      USER_ID VARCHAR2(4000) UNIQUE NOT NULL,
+      USER_PW VARCHAR2(4000) NOT NULL,
+      USER_NAME VARCHAR2(4000) NOT NULL,
+      USER_EMAIL VARCHAR2(4000)  NOT NULL,
       USER_ENABLED VARCHAR2(2) NOT NULL,
       USER_COUNT NUMBER NOT NULL,
       USER_IMAGE VARCHAR2(4000),
    CONSTRAINT USER_ENABLED_CHK CHECK( USER_ENABLED IN ('Y', 'N'))
 );
 
+
 SELECT * FROM USERS;
 
 DELETE FROM USERS WHERE USER_NO = 1;
 
 INSERT INTO USERS VALUES
-(USER_NO.NEXTVAL , 'jason' , '1234' , '김승진' , '123@123' , 'Y' , 0 , '1_user_img');
+(USER_NO.NEXTVAL , 'jason' , '1234' , '김승진' , '123@123' , 'Y' , 0 , 'https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile10.uf.tistory.com%2Fimage%2F2357063F55E46F1835EBD8');
 
 INSERT INTO USERS VALUES
-(USER_NO.NEXTVAL , 'ezno_9' , '1234' , '이진호' , '124@123' , 'Y' , 0 , '2_user_img');
+(USER_NO.NEXTVAL , 'ezno_9' , '1234' , '이진호' , '124@123' , 'Y' , 0 , 'https://pds.joins.com/news/component/htmlphoto_mmdata/201705/08/24aa8e32-6273-455c-b41e-f21f58a85bf8.jpg');
 
 INSERT INTO USERS VALUES
-(USER_NO.NEXTVAL , 'dg1chang' , '1234' , '장동건' , '125@123' , 'Y' , 0 , '3_user_img');
+(USER_NO.NEXTVAL , 'dg1chang' , '1234' , '장동건' , '125@123' , 'Y' , 0 , 'https://rgo4.com/files/attach/images/2681740/261/895/013/fec13bff27009975a47d96ff3316eb5c.jpg');
 
 INSERT INTO USERS VALUES
-(USER_NO.NEXTVAL , 'o2o202' , '1234' , '김소연' , '126@123' , 'Y' , 0 , '4_user_img');
+(USER_NO.NEXTVAL , 'o2o202' , '1234' , '김소연' , '126@123' , 'Y' , 0 , 'https://opgg-com-image.akamaized.net/attach/images/20191231055016.736507.jpg');
 
 INSERT INTO USERS VALUES
-(USER_NO.NEXTVAL , 'goregore8637' , '1234' , '한예인' , '127@123' , 'Y' , 0 , '5_user_img');
+(USER_NO.NEXTVAL , 'goregore8637' , '1234' , '한예인' , '127@123' , 'Y' , 0 , 'https://w7.pngwing.com/pngs/1021/114/png-transparent-pepe-the-frog-boys-club-cartoon-lily-pads-leaf-vertebrate-head.png');
 
 INSERT INTO USERS VALUES
-(USER_NO.NEXTVAL , 'skskoe' , '1234' , '권궁' , '128@123' , 'Y' , 0 , '6_user_img');
+(USER_NO.NEXTVAL , 'skskoe' , '1234' , '권궁' , '128@123' , 'Y' , 0 , 'https://cdn.sketchpan.com/member/guest/draw/15140/1514000414787/0.png');
 
 
 SELECT ROWNUM, A.* FROM (SELECT USER_NAME , USER_NO , USER_IMAGE FROM USERS ORDER BY USER_COUNT DESC) A WHERE ROWNUM <= 6

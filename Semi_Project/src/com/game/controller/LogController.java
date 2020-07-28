@@ -3,6 +3,7 @@ package com.game.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -62,7 +63,7 @@ public class LogController extends HttpServlet {
 			}
 			else {
 				System.out.println("실패");
-				jsResponse("로그인 실패","index.jsp",response);
+				jsResponse("로그인 실패. 아이디 또는 패스워드를 확인 해 주세요.","index.jsp",response);
 				
 			}
 			
@@ -94,12 +95,12 @@ public class LogController extends HttpServlet {
 			
 			if(res>0) {
 				System.out.println("\ninsert 성공!");
-				jsResponse("회원가입 성공","main.jsp",response);
+				jsResponse("회원가입 성공","index.jsp",response);
 			}
 			
 			else {
 				System.out.println("\ninsert 실패!");
-				jsResponse("회원가입 실패","platform.jsp",response);
+				jsResponse("회원가입 실패","index.jsp",response);
 			}
 		}else if(command.equals("pwchk")) {
 			//user pw 존재 확인
@@ -150,15 +151,18 @@ public class LogController extends HttpServlet {
 			
 		}else if(command.equals("pwchk_up")){
 	        //비밀번호 수정
-	         
+			
+			String user_id = (String)request.getSession().getAttribute("login");
+			System.out.println("Controller user_id: "+user_id);
+			
 	         String user_pw_ud = request.getParameter("user_pw_ud");
 	         System.out.println("Controller user_pw_ud :"+user_pw_ud);
 	         
 	         String user_pw_udck = request.getParameter("user_pw_udck");
 	         System.out.println("Controller user_pw_udck :"+user_pw_udck);
 	         
-	         String user_id = request.getParameter("user_id");
-	         System.out.println("Controller user_id: "+user_id);
+	         //String user_id = request.getParameter("user_id");
+	         //System.out.println("Controller user_id: "+user_id);
 	         
 	         LoginDao dao = new LoginDao();
 	         GameDto dto = new GameDto(user_id, user_pw_udck);
@@ -170,11 +174,11 @@ public class LogController extends HttpServlet {
 	               if(res>0) {
 	            	   
 	            	   System.out.println("\n update 성공!");
-	                   jsResponse("비밀번호 수정 성공","user_dashboard.jsp",response);
+	            	   MyjsResponse("비밀번호 수정 성공",response, "pagemove?command=user_dashboard&user_id="+user_id);
 	               
 	               }else {
 	            	   System.out.println("\n update 실패!");
-	                   jsResponse("비밀번호 수정 실패","user_dashboard.jsp",response);
+	            	   MyjsResponse("비밀번호 수정 실패",response, "pagemove?command=user_dashboard&user_id="+user_id);
 	               }
 	               
 	            }
@@ -269,5 +273,30 @@ public class LogController extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		out.print(s);
 	}
+	
+	private void MyjsResponse(String msg, HttpServletResponse response, String str) throws IOException {
+	      System.out.println("myjsResponse");
+	      String s = "<script type='text/javascript'>"+
+	            "alert('"+msg+"');"+
+	            "location.href='"+str+"';"+
+	            "</script>";
+	         
+	      PrintWriter out = response.getWriter();
+	      out.print(s);
+	   }
+	
+	private void dispatch(String msg, String url, HttpServletRequest request, HttpServletResponse response)
+	         throws ServletException, IOException {
+	      
+	      String s = "<script type='text/javascript'>"+
+	            "alert('"+msg+"');"+
+	            "</script>";
+	      
+	      RequestDispatcher dispatch = request.getRequestDispatcher(url);
+	      dispatch.forward(request, response);
+	      
+	      PrintWriter out = response.getWriter();
+	      out.print(s);
+	   }
 
 }

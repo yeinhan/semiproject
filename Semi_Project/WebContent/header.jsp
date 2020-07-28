@@ -75,7 +75,7 @@
 	            success: function(data){
 	               console.log(data);
 	               if(data == 1){
-	                  $(".idchk").text('중복 된 아이디 입니다.');
+	                  $(".idchk").text('ID 사용불가 : 중복 된 아이디 입니다.');
 	                  $(".idbox").attr('style','background-color:rgba( 255, 102, 102, 0.5 ) !important');
 	                        $(".idchk").css("color","red");
 	               }else {

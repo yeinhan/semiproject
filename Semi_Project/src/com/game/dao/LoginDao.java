@@ -244,7 +244,7 @@ public GameDto pwchk(String user_id) {
 		   	  Connection con = getConnection();
 		      PreparedStatement pstm  = null;
 		      int res = 0;
-		      String sql = "INSERT INTO USERS VALUES(?, ?, '비밀번호', ?, '이메일', 'Y', 0,'https://lh3.googleusercontent.com/proxy/_q8K8kvbpZJDyPu5jHeyuyRmwVXsAnZGMRyKqwjpyIeUXFEinZLLwte3nCphWxLlejuxM-KQRSkgYPNtWMQja_rM-jA4KrsEZD2rp4wJ32RnYNv3maFW9NBfQYWe5VWmMBTuhg59VblKKTNrHgzXNPFKeNYiIP1no_YC')";
+		      String sql = "INSERT INTO USERS VALUES(?, ?, '비밀번호', ?, '이메일', 'N', 0,'https://lh3.googleusercontent.com/proxy/_q8K8kvbpZJDyPu5jHeyuyRmwVXsAnZGMRyKqwjpyIeUXFEinZLLwte3nCphWxLlejuxM-KQRSkgYPNtWMQja_rM-jA4KrsEZD2rp4wJ32RnYNv3maFW9NBfQYWe5VWmMBTuhg59VblKKTNrHgzXNPFKeNYiIP1no_YC')";
 		      System.out.println("sql : "+sql);
 		      System.out.println("kakao insert");
 		      try {

@@ -27,6 +27,41 @@
 		alert("리뷰를 작성하시려면 먼저 로그인을 해주세요");
 		location.href = "pagemove?command=contentpage_more&game_no=${dto.game_no}";
 	}
+	function po1() {
+		var point = $("#sstar").val("1");
+	}
+	function po2() {
+		var point = $("#sstar").val("2");
+	}
+	function po3() {
+		var point = $("#sstar").val("3");
+	}
+	function po4() {
+		var point = $("#sstar").val("4");
+	}
+	function po5() {
+		var point = $("#sstar").val("5");
+	}
+	$(function() {
+		$("#sort").change(function() {
+			var sort = document.getElementsByName("sort")[0];
+			var idx = sort.selectedIndex;
+
+			if (idx == 0) {
+				$(".ranking_table1").css("display", "");
+				$(".ranking_table2").css("display", "none");
+				$(".ranking_table3").css("display", "none");
+			} else if (idx == 1) {
+				$(".ranking_table1").css("display", "none");
+				$(".ranking_table2").css("display", "");
+				$(".ranking_table3").css("display", "none");
+			} else if (idx == 2) {
+				$(".ranking_table1").css("display", "none");
+				$(".ranking_table2").css("display", "none");
+				$(".ranking_table3").css("display", "");
+			}
+		});
+	})
 </script>
 
 <!-- 부트스트랩  / css-->

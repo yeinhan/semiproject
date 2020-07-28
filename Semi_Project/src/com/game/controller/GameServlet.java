@@ -74,8 +74,10 @@ public class GameServlet extends HttpServlet {
 			System.out.println("starpoint" + starPoint);
 
 			GameDto dto = new GameDto(game_no, starPoint, rv_platform, rv_content, rv_user_id);
-
+			int user_count = dao.GetCount(rv_user_id);
+			user_count = user_count+1;
 			int res = dao.reviewInsert(dto);
+			int res_count = dao.user_count_up(user_count, rv_user_id);
 
 			double starAvg = Double.parseDouble(request.getParameter("star_avg"));
 			System.out.println("staravg" + starAvg);
@@ -205,7 +207,6 @@ public class GameServlet extends HttpServlet {
 			List<GameDto> reviewerlist = dao.selectReview();
 			request.setAttribute("reviewer", reviewerlist);
 			
-
 			dispatch("main.jsp", request, response);
 
 		} else if (command.equals("user_dashboard")) {
@@ -298,6 +299,11 @@ public class GameServlet extends HttpServlet {
 			int startRow = (currentPage -1) * pageSize +1;
 			int endRow = currentPage * pageSize;
 			
+			int user_count = dao.GetCount(user_id);
+			user_count = user_count-1;
+			int res_count = dao.user_count_up(user_count, user_id);
+
+			
 			System.out.println("platform " + platform);
 
 			int res = dao.deleteRv(seq, user_id);
@@ -376,7 +382,7 @@ public class GameServlet extends HttpServlet {
 				break;
 			case 2:
 				if (res > 0 & rv_platform == 2) {
-					jsResponse("글 수정 성공", "pagemove?command=user_dashboard_ps4&pageNum="+pageNum, response);
+					jsResponse("글 수정 성공", "pagemove?command=user_dashboard_pop_ps4&pageNum="+pageNum, response);
 				} else {
 					jsResponse("글 수정 실패ㅜㅜ", "pagemove?command=user_dashboard_pop_ps4&pageNum="+pageNum, response);
 				}

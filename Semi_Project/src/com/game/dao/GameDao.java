@@ -63,7 +63,7 @@ public class GameDao extends JDBCTemplate {
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		List<GameDto> res = new ArrayList<>();
-		String sql = "SELECT ROWNUM, A.* FROM (SELECT USER_NAME , USER_NO , USER_IMAGE FROM USERS ORDER BY USER_COUNT DESC) A WHERE ROWNUM <= 6";
+		String sql = "SELECT ROWNUM, A.* FROM (SELECT USER_NAME , USER_NO , USER_IMAGE, USER_COUNT FROM USERS ORDER BY USER_COUNT DESC) A WHERE ROWNUM <= 6 AND USER_COUNT > 0 ";
 
 		try {
 			pstm = con.prepareStatement(sql);
@@ -1569,4 +1569,59 @@ public class GameDao extends JDBCTemplate {
 		return res;
 		
 	}
+
+
+	public int GetCount(String rv_user_id) {
+		Connection con = getConnection();
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		int res = 0;
+		String sql = "SELECT USER_COUNT FROM USERS WHERE USER_ID = ?";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, rv_user_id);
+			System.out.println("3성공");
+			rs = pstm.executeQuery();
+			System.out.println("4성공");
+			while(rs.next()) {
+				res = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstm);
+			close(con);
+		}
+		
+		return res;
+	}
+
+
+	public int user_count_up(int user_count, String rv_user_id) {
+		Connection con = getConnection();
+		PreparedStatement pstm =null;
+		int res = 0;
+		String sql = "UPDATE USERS SET USER_COUNT = ? WHERE USER_ID = ?";
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, user_count);
+			pstm.setString(2, rv_user_id);
+			System.out.println("3성공");
+			res = pstm.executeUpdate();
+			System.out.println("4성공");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(pstm);
+			close(con);
+			
+		}
+		
+		return res;
+	}
+	
+	
 }

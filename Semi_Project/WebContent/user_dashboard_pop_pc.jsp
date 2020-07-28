@@ -94,7 +94,7 @@
 						<td><%=board.getRv_no()%></td>
 						<td><%=board.getGame_name()%></td>
 						<td><%=board.getRv_star()%></td>
-						<td><div><%=board.getRv_content()%></div></td>
+						<td><%=board.getRv_content()%></td>
 						<td><%=board.getRv_date()%></td>
 						<td>
 						<input type="button" value="수정" onclick="location.href='pagemove?command=updateform&rv_no=<%=board.getRv_no() %>&user_id=<%=user_id %>&pageNum=<%=pageNum %>'" >
